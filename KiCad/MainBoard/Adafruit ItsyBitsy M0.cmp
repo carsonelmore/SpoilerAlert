@@ -1,0 +1,11 @@
+Cmp-Mod V01 Created by PcbNew   date = 2/16/2022 1:40:40 PM
+
+BeginCmp
+TimeStamp = 620D5A39
+Path = 
+Reference = ITSYBITSY;
+ValeurCmp = Adafruit_ItsyBitsy_M0;
+IdModule  = MainBoardLibrary:Adafruit_ItsyBitsy_M0;
+EndCmp
+
+EndListe

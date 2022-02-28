@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NE555DR
+D Single Precision Timer
+K
+F http://www.ti.com/lit/ds/symlink/ne555.pdf
+$ENDCMP
+#
+$CMP L78S05CV
+D Standard Regulator 5V 2A TO-220 STMicroelectronics L78S05CV, Single Linear Voltage Regulator, 2A 5 V, 3-Pin TO-220
+K
+F http://www.st.com/web/en/resource/technical/document/datasheet/CD00000449.pdf
+$ENDCMP
+#
+#End Doc Library
