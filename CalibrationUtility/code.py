@@ -14,6 +14,7 @@ import board
 
 # setup
 i2c = board.I2C()
+GY521 = 0x68 # I2C DEVICE ADDRESS
 
 
 # main loop
