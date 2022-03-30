@@ -31,19 +31,26 @@ servo5 = servo.Servo(pwm5)
 
 modeA = digitalio.DigitalInOut(board.A1)
 modeA.direction = digitalio.Direction.INPUT
+modeA.pull = digitalio.Pull.UP
 modeB = digitalio.DigitalInOut(board.D10)
 modeB.direction = digitalio.Direction.INPUT
-
+modeB.pull = digitalio.Pull.UP
+lowDrag = digitalio.DigitalInOut(board.D7)
+lowDrag.direction = digitalio.Direction.INPUT
+lowDrag.pull = digitalio.Pull.UP
+brakeSensor = digitalio.DigitalInOut(board.D2)
+brakeSensor.direction = digitalio.Direction.INPUT
+modeA.pull = digitalio.Pull.DOWN
 
 # main loop
 ready = True;
 while True:
     if ready:
-        print("Enter servo number:desired angle, eg 2:045")
+        print("Enter servo number:desired angle, eg 2:045, or STOP!")
     command = usb_cdc.console.read(5)
     if command is None:
         continue
-    if command is "STOP":
+    if "STOP" in command:
         break
     whichServo = int(command[0:1])
     print("Parse: servo ", whichServo, "\n       Angle ", int(command[2:5]))
@@ -84,5 +91,15 @@ while True:
 
 # # finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
     # # i2c.unlock()
+while True:
+    if ready:
+        print("Poll Sensors?")
+    command = usb_cdc.console.read(1)
+    print("Mode A: ", modeA.value)
+    print("Mode B: ", modeB.value)
+    print("LowDrag:", lowDrag.value)
+    print("Brake : ", brakeSensor.value)
+    if "!" in command:
+        break
     
 i2c.unlock()
