@@ -19,7 +19,16 @@ import usb_cdc
 i2c = board.I2C()
 GY521 = 0x68 # I2C DEVICE ADDRESS
 
-
+pwm1 = pwmio.PWMOut(board.D11, duty_cycle = 2**15, frequency = 50)
+servo1 = servo.Servo(pwm1)
+pwm2 = pwmio.PWMOut(board.D5, duty_cycle = 2**15, frequency = 50)
+servo2 = servo.Servo(pwm2)
+pwm3 = pwmio.PWMOut(board.D13, duty_cycle = 2**15, frequency = 50)
+servo3 = servo.Servo(pwm3)
+pwm4 = pwmio.PWMOut(board.A2, duty_cycle = 2**15, frequency = 50)
+servo4 = servo.Servo(pwm4)
+pwm5 = pwmio.PWMOut(board.D9, duty_cycle = 2**15, frequency = 50)
+servo5 = servo.Servo(pwm5)
 # main loop
 ready = True;
 while True:
@@ -34,30 +43,20 @@ while True:
     print("Parse: servo ", whichServo, "\n       Angle ", int(command[2:5]))
     try:
         if whichServo is 1:
-            pwm1 = pwmio.PWMOut(board.D11, duty_cycle = 2**15, frequency = 50)
-            servo1 = servo.Servo(pwm1)
             servo1.angle = int(command[2:5])
-            pwm1.deinit()
+            #pwm1.deinit()
         elif whichServo is 2:
-            pwm2 = pwmio.PWMOut(board.D10, duty_cycle = 2**15, frequency = 50)
-            servo2 = servo.Servo(pwm2)
             servo2.angle = int(command[2:5])
-            pwm2.deinit()
+            #pwm2.deinit()
         elif whichServo is 3:
-            pwm3 = pwmio.PWMOut(board.D13, duty_cycle = 2**15, frequency = 50)
-            servo3 = servo.Servo(pwm3)
             servo3.angle = int(command[2:5])
-            pwm3.deinit()
+            #pwm3.deinit()
         elif whichServo is 4:
-            pwm4 = pwmio.PWMOut(board.A2, duty_cycle = 2**15, frequency = 50)
-            servo4 = servo.Servo(pwm4)
             servo4.angle = int(command[2:5])
-            pwm4.deinit()
+            #pwm4.deinit()
         elif whichServo is 5:
-            pwm5 = pwmio.PWMOut(board.D9, duty_cycle = 2**15, frequency = 50)
-            servo5 = servo.Servo(pwm5)
             servo5.angle = int(command[2:5])
-            pwm5.deinit()
+            #pwm5.deinit()
         else:
             print("Command not parseable. To stop, enter STOP.")
     except ValueError as err:
