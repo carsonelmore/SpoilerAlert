@@ -44,7 +44,7 @@ while True:
             servo2.angle = int(command[2:5])
             pwm2.deinit()
         elif whichServo is 3:
-            pwm3 = pwmio.PWMOut(board.A1, duty_cycle = 2**15, frequency = 50)
+            pwm3 = pwmio.PWMOut(board.D13, duty_cycle = 2**15, frequency = 50)
             servo3 = servo.Servo(pwm3)
             servo3.angle = int(command[2:5])
             pwm3.deinit()
