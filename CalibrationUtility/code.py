@@ -2,7 +2,7 @@
 # Formula SAE Interdisciplinary Design project
 # Oklahoma State University College of Engineering Architecture and Technology
 # Initial Commit: 2/28/2022 Carson Elmore
-# Document State: PRE-ALPHA
+# Document State: 1.1
 # Language: CircuitPython 7
 # Board: ItsyBitsy M0
 #
