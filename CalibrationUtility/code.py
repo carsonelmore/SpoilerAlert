@@ -40,7 +40,7 @@ lowDrag.direction = digitalio.Direction.INPUT
 lowDrag.pull = digitalio.Pull.UP
 brakeSensor = digitalio.DigitalInOut(board.D2)
 brakeSensor.direction = digitalio.Direction.INPUT
-modeA.pull = digitalio.Pull.DOWN
+brakeSensor.pull = digitalio.Pull.DOWN
 
 # main loop
 ready = True;
